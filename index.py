@@ -1,3 +1,4 @@
+# MODULE IMPORT
 import sys
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication, QMainWindow
@@ -9,7 +10,10 @@ import port_select_window_UI
 # info.py FILE CONTAINS VERSION AND PROJECT INFO
 import info
 
-print(f'name of project: {info.project} version: {info.app_version}')
+# LOCAL IMPORT
+import serial_connection
+
+print(f'Project: {info.project} version: {info.app_version}')
 
 
 class combinedWindow(QMainWindow):
@@ -23,6 +27,10 @@ class combinedWindow(QMainWindow):
         self.timer_splash.timeout.connect(self.splash_window_progress)
         self.timer_splash.start(10)
         self.counter = 0
+
+        # BUTTON CLICK CONNECT
+        self.port_select_window.ui.button_select_port.clicked.connect(self.button_action_continue)
+        self.port_select_window.ui.button_rescan.clicked.connect(self.button_action_refresh_port_list)
 
     # SPLASH SCREEN
 
@@ -50,7 +58,17 @@ class combinedWindow(QMainWindow):
         self.port_select_window.hide()
 
     def populate_port_list(self):
-        self.port_select_window.ui.comboBox_port_sel.addItem("This")
+        ser = serial_connection.serialConn()
+        port_choice_list = ser.get_port_list()
+        self.port_select_window.ui.comboBox_port_sel.clear()
+        self.port_select_window.ui.comboBox_port_sel.addItems(port_choice_list)
+
+    def button_action_refresh_port_list(self):
+        self.port_select_window.ui.comboBox_port_sel.clear()
+        self.populate_port_list()
+
+    def button_action_continue(self):
+        print('clicked continue')
 
     # ALL SCREEN INITIALIZATION
 

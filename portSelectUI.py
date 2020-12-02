@@ -28,10 +28,16 @@ class Ui_portSelect(object):
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout.addItem(spacerItem, 0, 1, 1, 2)
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem1, 2, 5, 1, 1)
+        self.label_dev_port = QtWidgets.QLabel(self.centralwidget)
+        self.label_dev_port.setStyleSheet("color: rgb(255, 255, 255);\n"
+"padding:10px;")
+        self.label_dev_port.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_dev_port.setObjectName("label_dev_port")
+        self.gridLayout.addWidget(self.label_dev_port, 2, 1, 1, 2)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem, 2, 6, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout.addItem(spacerItem1, 0, 1, 1, 2)
         self.comboBox_port_sel = QtWidgets.QComboBox(self.centralwidget)
         self.comboBox_port_sel.setStyleSheet("QComboBox{\n"
 "    color: rgb(216,222,233);\n"
@@ -49,28 +55,6 @@ class Ui_portSelect(object):
 "}")
         self.comboBox_port_sel.setObjectName("comboBox_port_sel")
         self.gridLayout.addWidget(self.comboBox_port_sel, 2, 3, 1, 2)
-        self.label_dev_port = QtWidgets.QLabel(self.centralwidget)
-        self.label_dev_port.setStyleSheet("color: rgb(255, 255, 255);\n"
-"padding:10px;")
-        self.label_dev_port.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_dev_port.setObjectName("label_dev_port")
-        self.gridLayout.addWidget(self.label_dev_port, 2, 1, 1, 2)
-        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem2, 2, 0, 1, 1)
-        self.label_port_sel_stat = QtWidgets.QLabel(self.centralwidget)
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(12)
-        font.setBold(False)
-        font.setWeight(50)
-        self.label_port_sel_stat.setFont(font)
-        self.label_port_sel_stat.setStyleSheet("color: rgb(255, 255, 255);\n"
-"padding: 10px;")
-        self.label_port_sel_stat.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
-        self.label_port_sel_stat.setObjectName("label_port_sel_stat")
-        self.gridLayout.addWidget(self.label_port_sel_stat, 1, 1, 1, 4)
-        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout.addItem(spacerItem3, 5, 1, 1, 1)
         self.button_select_port = QtWidgets.QPushButton(self.centralwidget)
         self.button_select_port.setStyleSheet("QPushButton{\n"
 "    color: rgb(216,222,233);\n"
@@ -102,6 +86,51 @@ class Ui_portSelect(object):
 "}")
         self.button_select_port.setObjectName("button_select_port")
         self.gridLayout.addWidget(self.button_select_port, 5, 3, 1, 2)
+        self.label_port_sel_stat = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
+        self.label_port_sel_stat.setFont(font)
+        self.label_port_sel_stat.setStyleSheet("color: rgb(255, 255, 255);\n"
+"padding: 10px;")
+        self.label_port_sel_stat.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
+        self.label_port_sel_stat.setObjectName("label_port_sel_stat")
+        self.gridLayout.addWidget(self.label_port_sel_stat, 1, 1, 1, 4)
+        spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem2, 2, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout.addItem(spacerItem3, 5, 1, 1, 1)
+        self.button_rescan = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.button_rescan.sizePolicy().hasHeightForWidth())
+        self.button_rescan.setSizePolicy(sizePolicy)
+        self.button_rescan.setStyleSheet("QPushButton{\n"
+"    color: rgb(216,222,233);\n"
+"    border-style:none;\n"
+"    padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    color: rgb(229,233,244);\n"
+"    background-color: rgb(76,86,106);\n"
+"    padding: 4px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"    color: rgb(229,233,244);\n"
+"    background-color:rgb(67,76,94);\n"
+"    padding: 4px;\n"
+"}")
+        self.button_rescan.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img/reload.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.button_rescan.setIcon(icon)
+        self.button_rescan.setObjectName("button_rescan")
+        self.gridLayout.addWidget(self.button_rescan, 2, 5, 1, 1)
         portSelect.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(portSelect)
@@ -111,5 +140,5 @@ class Ui_portSelect(object):
         _translate = QtCore.QCoreApplication.translate
         portSelect.setWindowTitle(_translate("portSelect", "MainWindow"))
         self.label_dev_port.setText(_translate("portSelect", "Select port"))
-        self.label_port_sel_stat.setText(_translate("portSelect", "Data Logger port selection"))
         self.button_select_port.setText(_translate("portSelect", "Continue"))
+        self.label_port_sel_stat.setText(_translate("portSelect", "Data Logger port selection"))
