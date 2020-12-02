@@ -10,6 +10,22 @@ except ImportError:
 class CommException(Exception):
     pass
 
+#
+# ser = serial.Serial()
+# ser.baudrate = 115200
+# ser.port = 'COM3'
+# ser.timeout = 1
+# ser.setRTS(False)
+# ser.open()
+#
+# ser.write(b'x#')
+#
+# data = []
+# # while (data[len(data)] != 'END'):
+# a = ser.read_until('o')
+# print(a)
+# ser.close()
+
 class CommProtocol(serial.threaded.LineReader):
 
     TERMINATOR = b'\r\n'
