@@ -25,7 +25,7 @@ class combinedWindow(QMainWindow):
         # TIMER FOR SPLASH SCREEN TIMEOUT
         self.timer_splash = QtCore.QTimer()
         self.timer_splash.timeout.connect(self.splash_window_progress)
-        self.timer_splash.start(10)
+        self.timer_splash.start(20)
         self.counter = 0
 
         # BUTTON CLICK CONNECT
