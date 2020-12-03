@@ -25,7 +25,7 @@ class combinedWindow(QMainWindow):
         # TIMER FOR SPLASH SCREEN TIMEOUT
         self.timer_splash = QtCore.QTimer()
         self.timer_splash.timeout.connect(self.splash_window_progress)
-        self.timer_splash.start(20)
+        self.timer_splash.start(10)
         self.counter = 0
 
         # BUTTON CLICK CONNECT
@@ -58,7 +58,7 @@ class combinedWindow(QMainWindow):
         self.port_select_window.hide()
 
     def populate_port_list(self):
-        ser = serial_connection.serialConn()
+        ser = serial_connection.SerialConn()
         port_choice_list = ser.get_port_list()
         self.port_select_window.ui.comboBox_port_sel.clear()
         self.port_select_window.ui.comboBox_port_sel.addItems(port_choice_list)

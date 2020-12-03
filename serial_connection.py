@@ -2,7 +2,7 @@ import serial
 import serial.tools.list_ports
 
 
-class serialConn():
+class SerialConn():
     def __init__(self):
         self.ports = []
         self.matched_device_count = 0
@@ -18,7 +18,7 @@ class serialConn():
         self.match_device_manufacturer("FTDI")
         port_links = []
         for each in self.ports:
-            port_links.append(each.device)
+            port_links.append(each.name)
         return port_links
 
     def port_info(self):
@@ -43,6 +43,3 @@ class serialConn():
                 self.matched_device_count += 1
         return self.matched_device_count
 
-x = serialConn()
-
-x.get_port_list()
