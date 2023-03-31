@@ -15,6 +15,8 @@ import serial_connection
 
 print(f'Project: {info.project} version: {info.app_version}')
 
+bllalb
+
 
 class combinedWindow(QMainWindow):
     def __init__(self):
